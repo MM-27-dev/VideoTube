@@ -28,12 +28,9 @@ const userSchema = new Schema(
       type: String, //cloudinary URL
       required: true,
     },
-    avatar: {
-      type: String, //cloudinary URL
-      required: true,
-    },
     coverImage: {
       type: String,
+      required: false,
     },
     watchHistory: [
       {
@@ -45,7 +42,7 @@ const userSchema = new Schema(
       type: String,
       required: [true, "password is required"],
     },
-    refernceToken: {
+    refreshToken: {
       type: String,
     },
   },
@@ -54,12 +51,18 @@ const userSchema = new Schema(
   }
 );
 
+// userSchema.pre("save", async function (next) {
+//   //the hashing runs when the passowrd saves first in the DB and when the password is modified
+//   if (!this.modified("pasword")) return next();
+//   this.password = bcrypt.hash(this.password, 10);
+//   next();
+// });
 userSchema.pre("save", async function (next) {
-  //the hashing runs when the passowrd saves first in the DB and when the password is modified
-  if (!this.modified("pasword")) return next();
-  this.password = bcrypt.hash(this.password, 10);
+  if (!this.isModified("password")) return next(); // corrected key + method
+  this.password = await bcrypt.hash(this.password, 10); // await added
   next();
 });
+
 
 //Checking the whaether the password (what user sends) is equal too the password in the DB
 userSchema.methods.isPasswordCheck = async function (password) {
