@@ -4,7 +4,8 @@ import { ApiError } from "../utils/apiError.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 
 export const verifyJWT = asyncHandler(async (req, _, next) => {
-  const token = req.cookies.aceessToken || req.body.aceessToken;
+ 
+   const token = req.cookies.accessToken || req.body.accessToken;
 
   if (!token) {
     throw new ApiError(401, "Unauthorized");
