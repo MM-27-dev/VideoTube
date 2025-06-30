@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "38bda3be-1caf-4a7b-99d6-056481571032",
+		"name": "User-Controller",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "36923768"
+	},
+	"item": [
+		{
+			"name": "HealthCheck",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8000/api/v1/healthcheck"
+			},
+			"response": []
+		},
+		{
+			"name": "RegisterUser",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "fullname",
+							"value": "Moniii",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "Moniiiiika",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "monika@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Moni@1234",
+							"type": "text"
+						},
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "/D:/OneDrive - Valtech/Images/Captures d’écran/Screenshot (5).png"
+						},
+						{
+							"key": "coverImage",
+							"type": "file",
+							"src": "/D:/OneDrive - Valtech/Images/Captures d’écran/Screenshot (2).png"
+						}
+					]
+				},
+				"url": "http://localhost:8000/api/v1/users/register"
+			},
+			"response": []
+		},
+		{
+			"name": "LoginUser",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"monika@gmail.com\",\r\n  \"username\": \"Moniiiiika\",\r\n  \"password\": \"Moni@1234\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/v1/users/login"
+			},
+			"response": []
+		},
+		{
+			"name": "RefreshAccesToken",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODVlNjRlNzljZTQ3ZTQzMjY5NmVjNzciLCJpYXQiOjE3NTEwMjg3NTIsImV4cCI6MTc1MTAyODgxMn0.hlQ4uyuo3n1uUcdXgNhmtt9M09sn9c7psq8GIoUuH-Q\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/v1/users/refresh-token"
+			},
+			"response": []
+		},
+		{
+			"name": "CurrentUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"monika@gmail.com\",\r\n  \"username\": \"Moniiiiika\",\r\n  \"password\": \"Moni@1234\"\r\n}\r\n"
+				},
+				"url": "http://localhost:8000/api/v1/users/current-user"
+			},
+			"response": []
+		},
+		{
+			"name": "ChangePassword",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"oldPassword\": \"Moni@1234\",\r\n  \"newPassword\": \"Monika@12345\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/v1/users/change-password"
+			},
+			"response": []
+		},
+		{
+			"name": "AccountUpadte",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"fullname\":\"Moniii\",\r\n  \"email\": \"monika1@gmail.com\"\r\n\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/v1/users/update-account"
+			},
+			"response": []
+		},
+		{
+			"name": "update Avatar",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "/D:/OneDrive - Valtech/Images/Captures d’écran/Screenshot (6).png"
+						}
+					]
+				},
+				"url": "http://localhost:8000/api/v1/users/avatar"
+			},
+			"response": []
+		},
+		{
+			"name": "CoverImageUpdate",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "coverImage",
+							"type": "file",
+							"src": "/D:/OneDrive - Valtech/Images/Captures d’écran/Screenshot (1).png"
+						}
+					]
+				},
+				"url": "http://localhost:8000/api/v1/users/coverImage"
+			},
+			"response": []
+		},
+		{
+			"name": "GetChannel",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "/D:/OneDrive - Valtech/Images/Captures d’écran/Screenshot (6).png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/users/c/:moniiiiika",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"c",
+						":moniiiiika"
+					],
+					"variable": [
+						{
+							"key": "moniiiiika",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WatchHistory",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "/D:/OneDrive - Valtech/Images/Captures d’écran/Screenshot (6).png"
+						}
+					]
+				},
+				"url": "http://localhost:8000/api/v1/users/history"
+			},
+			"response": []
+		}
+	]
+}
