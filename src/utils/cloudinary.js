@@ -3,7 +3,6 @@ import fs from "fs"
 import dotenv from "dotenv"
 
 // Configuration
-
 dotenv.config();
 
 // ✅ ACTUALLY APPLY THE CONFIG
